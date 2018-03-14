@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:th="http://www.thymeleaf.org">
+	
+<head>
+	<title>Omat elokuvasi</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form th:action="@{/logout}" method="post">
+<input type="submit" value="kirjaudu ulos"/>
+</form>
+<h1>lista elokuvistasi</h1>
+<div class="container">
+        
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nimi</th>
+        <th>Ohjaaja</th>
+        <th>Arvio 1-5</th>
+        <th>Kommentti</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="Elokuva : ${elokuvat}">
+        <td th:text="${Elokuva.nimi}"></td>
+        <td th:text="${Elokuva.ohjaaja}"></td>
+        <td th:text="${Elokuva.arvio}"></td>
+        <td th:text="${Elokuva.kommentti}"></td>
+        <td><a th:href="@{/poista/{id}(id=${Elokuva.id})}">Delete</a></td>
+      </tr>
+    </tbody>
+  </table>
+  <a href="/lisaaelokuva" class="btn btn-success">Lisää elokuva</a>
+  <a href="/etusivu" class="btn btn-primary">Etusivu</a>
+</div>
+</body>
+</html>

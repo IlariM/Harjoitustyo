@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	
+<head>
+	<title>Harjoitustyö</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form th:action="@{/login}" method="get">
+<input type="submit" value="kirjaudu sisään"/>
+</form><br/>
+<form th:action="@{/logout}" method="post">
+<input type="submit" value="kirjaudu ulos"/>
+</form>
+<p th:inline="text">Olet kirjautunut sisään käyttäjällä: [[${#httpServletRequest.remoteUser}]]</p>
+<h1>Etusivu</h1>
+<a href="/lisaaelokuva" class="btn btn-success">Lisää Elokuva</a><br/><br/>
+<a href="/omatelokuvat" class="btn btn-primary">Näytä elokuvasi</a>
+</body>
+</html>

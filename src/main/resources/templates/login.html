@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+	
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<title>Elokuvapalvelun kirjautuminen</title>
+</head>
+<body>
+<h1>Elokuvapalvelun sisäänkirjautuminen</h1>
+<div th:if="${param.error}">
+Väärä käyttäjätunnus tai salasana
+</div>
+<form th:action="@{/login}" method="post">
+<div><label> Käyttäjätunnus: <input type="text" class="form-control col-xs-3" name="username"/> </label></div>
+<div><label> Salasana: <input type="password" class="form-control col-xs-3" name="password"/> </label></div>
+<div><input type="submit" class="btn btn-primary" value="Kirjaudu sisään"/></div>
+</form><br/>
+<a href="/etusivu" class="btn btn-primary">Etusivulle</a><br> <br/>
+<div class="panel-group col-xs-2">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" href="#collapse1">Käyttäjätunnus palveluun</a>
+      </h4>
+    </div>
+    <div id="collapse1" class="panel-collapse collapse">
+      <ul class="list-group">
+        <li class="list-group-item">käyttäjä</li>
+        <li class="list-group-item">salasana</li>
+        
+      </ul>
+   
+    </div>
+  </div>
+</div>
+</body>
+</html>
